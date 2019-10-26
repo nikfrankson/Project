@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
         * {
             margin: 0px;
             padding: 0px;
@@ -22,12 +22,9 @@
             .row-three {
                 display: grid;
                 grid-template-columns: 1fr 5fr 1fr;
-                margin: 12px;
+                height: 100%;
+                width: 100%;
             }
-    
-       
-            
-            .row-three {}
             .container-padding {
                 margin: 12px;
                 border: 1px dashed black;
@@ -48,3 +45,9 @@
             height: 100%;
         }
         
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
