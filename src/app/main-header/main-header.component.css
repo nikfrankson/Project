@@ -1,9 +1,38 @@
-.row-one {
-    background-color: rgb(5, 2, 56);
+.headerbar {
+    background-color: #590899;
+    padding: 50px;
+    text-align: left;
+    color: white;
 }
-.nav-buttons {
-    margin-right: 10px;
+.headerbar {
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
 }
-.toolbar {
-    height: 100%;
+
+.inputtask [type=text] {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: large;
+    padding: 30px;
+    color: #B4A6C0;
+    width: 1000px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+.inputtask [type=text]:focus {
+    border: 3px solid black;
+  }
+
+.inputbutton {
+    position: absolute;
+    top: 30%;
+    right: 33%;
+}
+.login {
+    position: absolute;
+    top: 0%;
+    left: 0%;
 }
