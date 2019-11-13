@@ -8,7 +8,8 @@ import {Router} from '@angular/router';
 export class MainHeaderComponent implements OnInit {
 
 
-
+  username: string;
+  password: string;
   constructor(
     private router: Router
   ) { }
@@ -17,3 +18,6 @@ export class MainHeaderComponent implements OnInit {
 
 
 }
+
+
+
