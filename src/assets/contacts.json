@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "firstName": "Nik",
+        "lastName": "Frankson",
+        "email": "nikfrankson@mail.fresnostate.edu",
+        "phone": "(559) 555-5555",
+        "editing": false
+    },
+    {
+        "id": 2,
+        "firstName": "Mel",
+        "lastName": "Gibson",
+        "email": "mgibson@gmail.com",
+        "phone": "(559) 123-5555",
+        "editing": false
+    },
+    {
+        "id": 3,
+        "firstName": "George",
+        "lastName": "St-Pierre",
+        "email": "gsp@yahoo.com",
+        "phone": "(559) 321-5555",
+        "editing": false
+    }
+]
