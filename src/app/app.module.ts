@@ -3,19 +3,26 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContactComponent } from './contact/contact.component';
+import { ToDoComponent } from './todo/todo.component';
 
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { ToastModule } from './toast/toast.module';
+import { AppRoutes } from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent
+    ToDoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ToastModule,
+    AppRoutes
   ],
   providers: [],
   bootstrap: [AppComponent]
