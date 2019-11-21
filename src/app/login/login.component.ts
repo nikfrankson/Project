@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         console.log('matches');
         this.localStorageService.saveItemsToLocalStorage(user);
         // navigate to contacts page
-        this.router.navigate(['todos', user]);
+        this.router.navigate(['todolist', user]);
       } else {
         // show error toast user
         console.log('from else........');

@@ -48,3 +48,9 @@
     top: 15%;
     right: 33%;
 }
+
+.logout {
+    position: absolute;
+    right: 5%;
+    bottom: 30%;
+}

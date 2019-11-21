@@ -8,7 +8,7 @@ import { ToastService } from '../toast/toast.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
-  selector: 'todo',
+  selector: 'todolist',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })

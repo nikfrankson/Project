@@ -9,7 +9,7 @@ const appRoutes: Routes = [
         path: '',
         component: LoginComponent
     }, {
-        path: 'toDos',
+        path: 'todolist',
         component: ToDoComponent
     }, {
         path: '**',
