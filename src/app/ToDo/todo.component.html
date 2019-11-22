@@ -20,10 +20,10 @@
 <div class="toDoEnter">
     <div class="container-padding">
         <div class="inputtask">
-            <input type="text" id="myInput" placeholder="Enter in your task to do..."><br>
+            <input [(ngModel)]="inputtask" type="text" id="myInput" placeholder="Enter in your task to do..."><br>
         </div>
         <div class="inputbutton">
-            <button type="button" (click)="addToDo()" class="btn btn-success btn-lg">Enter Task</button>
+            <button type="button" (click)="addToDo(inputtask)" class="btn btn-success btn-lg">Enter Task</button>
         </div>
     </div>
     <div id="r1c2" class="container-padding">
@@ -35,7 +35,12 @@
 </div>
 
 
-<ul class="list-group" id="myTask">
-        <li class="list-group-item">Cras justo odio</li>
+<ul class="list-group">
+        <li *ngFor="let todo of todos; let i = index" class="list-group-item" id="myTask">
+            todo.task <button type="button" class="btn btn-danger" (click)="delete()">X</button>
+        </li>
+
         
+     
 </ul>
+

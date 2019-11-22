@@ -1,16 +1,15 @@
 
-    interface IToDo {
-         day?: string;
-         time?: string;
+   export interface IToDo {
+         id?: number;
          task?: string;
-         editing?: boolean;
+         editing?: boolean
+
     }
     export class ToDo {
 
-        public day?: string;
-        public time?: string;
+        public id?: number;
         public task?: string;
-        public editing?: boolean;
+        public editing?: boolean
 
         constructor(todo: IToDo) {
             todo.editing = this.setState(todo);

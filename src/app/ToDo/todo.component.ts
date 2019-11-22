@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDo } from './todo.model';
+import { ToDo, IToDo } from './todo.model';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from '../localStorageService';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,7 +13,8 @@ import { ToastService } from '../toast/toast.service';
   styleUrls: ['./todo.component.css']
 })
 export class ToDoComponent implements OnInit {
-  todos: Array<ToDo> = [];
+  todos: Array<IToDo> = [];
+  inputtask = "";
   toDoParams = '';
   localStorageService: LocalStorageService<ToDo>;
   currentUser: IUser;
@@ -38,25 +39,36 @@ export class ToDoComponent implements OnInit {
 
   // Creating a to do item by clicking on the Enter Button
 
-  addToDo() {
-    const li = document.createElement('li');
-    const inputValue = (document.getElementById('myInput') as HTMLInputElement).value;
-    console.log('Input Task is', inputValue);
-    const t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
-      alert('You must input a To Do Task!');
-    } else {
-      document.getElementById('myTask').appendChild(li);
+  addToDo(todo: string) {
+    // const li = document.createElement('li');
+    // const inputValue = (document.getElementById('myInput') as HTMLInputElement).value;
+    // console.log('Input Task is', inputValue);
+    // const t = document.createTextNode(inputValue);
+    // // li.appendChild(t);
+    // // if (inputValue === '') {
+    // //   alert('You must input a To Do Task!');
+    // // } else {
+    // //   document.getElementById('myTask').appendChild(li);
+    // // }
+    // // (document.getElementById('myInput') as HTMLInputElement).value = '';
+
+    // // const span = document.createElement('SPAN');
+    // // const txt = document.createTextNode('\u00D7');
+    // // span.className = 'close';
+    // // span.appendChild(txt);
+    // // li.appendChild(span);
+    const td = {
+      id: 1,
+      task: todo,
+      editing: false      
     }
-    (document.getElementById('myInput') as HTMLInputElement).value = '';
+    this.todos.push(td);
 
-    const span = document.createElement('SPAN');
-    const txt = document.createTextNode('\u00D7');
-    span.className = 'close';
-    span.appendChild(txt);
-    li.appendChild(span);
+}
 
+delete(index: number) {
+    this.todos.splice(index, 1);
+    console.log("index", index);
 }
 
 saveContact(todo: any) {
@@ -97,7 +109,7 @@ saveItemsToLocalStorage(contacts: Array<ToDo>) {
 sortByID(contacts: Array<ToDo>) {
   contacts.sort((prevContact: ToDo, presContact: ToDo) => {
 
-    return prevContact.day > presContact.day ? 1 : -1;
+    return prevContact.id > presContact.id ? 1 : -1;
   });
   console.log('the sorted contacts', contacts);
   return this.todos;
