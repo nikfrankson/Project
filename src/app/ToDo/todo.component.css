@@ -1,0 +1,56 @@
+.nav-action-container {
+    margin: 20px auto;
+    width: 90%;
+}
+.main-nav {
+    padding: 10px 5%;
+}
+
+.list-group-item {
+    display: grid;
+    margin: 10px auto;
+    width: 50%;
+    height: 10vh;
+    max-height: 10vh;
+    overflow: auto;
+}
+
+.toDoEnter {
+    background-color: #590899;
+    padding: 50px;
+    text-align: left;
+    color: white;
+}
+.toDoEnter {
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+.inputtask [type=text] {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: large;
+    padding: 30px;
+    color: #B4A6C0;
+    width: 1000px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+.inputtask [type=text]:focus {
+    border: 3px solid black;
+  }
+
+.inputbutton {
+    position: absolute;
+    top: 140px;
+    right: 600px;
+}
+
+.logout {
+    position: absolute;
+    right: 5%;
+    bottom: 30%;
+}
