@@ -115,7 +115,9 @@ sortByID(contacts: Array<ToDo>) {
   return this.todos;
 }
 
-
+navigateTo() {
+  this.router.navigate(['schedulerpage']);
+}
 
 logout() {
   // clear localStorage

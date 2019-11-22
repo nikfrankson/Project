@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ToastModule } from './toast/toast.module';
 import { AppRoutes } from './app.routes';
+import { SchedulerModule } from './Scheduler/scheduler.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppRoutes } from './app.routes';
     HttpClientModule,
     FormsModule,
     ToastModule,
-    AppRoutes
+    AppRoutes,
+    SchedulerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
