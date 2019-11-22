@@ -81,10 +81,10 @@ saveContact(todo: any) {
 
     }
   });
-  // if (!hasError) {
-  //   todo.editing = false;
-  //   this.saveItemsToLocalStorage(this.todos);
-  // }
+  if (!hasError) {
+    todo.editing = false;
+    this.saveItemsToLocalStorage(this.todos);
+  }
 }
 
 
@@ -96,14 +96,14 @@ getItemsFromLocalStorage(key: string) {
   // return savedContacts;
 }
 
-// saveItemsToLocalStorage(contacts: Array<ToDo>) {
-//   contacts = this.sortByID(contacts);
-//   return this.localStorageService.saveItemsToLocalStorage(contacts);
+saveItemsToLocalStorage(contacts: Array<ToDo>) {
+  contacts = this.sortByID(contacts);
+  return this.localStorageService.saveItemsToLocalStorage(contacts);
 
-  // const savedContacts = localStorage.setItem('contacts', JSON.stringify(contacts));
-  // console.log('from saveItemsToLocalStorage savedContacts: ', savedContacts);
-  // return savedContacts;
-// }
+  const savedContacts = localStorage.setItem('contacts', JSON.stringify(contacts));
+  console.log('from saveItemsToLocalStorage savedContacts: ', savedContacts);
+  return savedContacts;
+}
 
 sortByID(contacts: Array<ToDo>) {
   contacts.sort((prevContact: ToDo, presContact: ToDo) => {
