@@ -13,7 +13,7 @@ export class SchedulerComponent {
     public data: object[] = [{
         Id: 2,
         Subject: 'Paris',
-        // year, ? but needs to be 1, day, time(HR), Minutes)
+        // (year, ? but needs to be 1, day, time(HR), Minutes)
         StartTime: new Date(2019, 1, 15, 10, 0),
         EndTime: new Date(2019, 1, 15, 12, 30)
     }];
