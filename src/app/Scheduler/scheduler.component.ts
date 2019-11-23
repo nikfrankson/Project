@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EventSettingsModel, DayService, WeekService, WorkWeekService,
   MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
-
+// NOTE: Run npm i @syncfusion/ej2-angular-schedule
 @Component({
     selector: 'app-scheduler',
     providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService],
