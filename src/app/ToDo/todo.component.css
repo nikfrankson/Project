@@ -54,3 +54,7 @@
     right: 5%;
     bottom: 30%;
 }
+.btn {
+    position: absolute;
+    right: 15px;
+}

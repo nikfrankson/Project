@@ -39,87 +39,78 @@ export class ToDoComponent implements OnInit {
   // Creating a to do item by clicking on the Enter Button
 
   addToDo(todo: string) {
-    // const li = document.createElement('li');
-    // const inputValue = (document.getElementById('myInput') as HTMLInputElement).value;
-    // console.log('Input Task is', inputValue);
-    // const t = document.createTextNode(inputValue);
-    // // li.appendChild(t);
-    // // if (inputValue === '') {
-    // //   alert('You must input a To Do Task!');
-    // // } else {
-    // //   document.getElementById('myTask').appendChild(li);
-    // // }
-    // // (document.getElementById('myInput') as HTMLInputElement).value = '';
-
-    // // const span = document.createElement('SPAN');
-    // // const txt = document.createTextNode('\u00D7');
-    // // span.className = 'close';
-    // // span.appendChild(txt);
-    // // li.appendChild(span);
     const td = {
       id: 1,
       task: todo,
-      editing: false      
+      editing: false
     }
-    this.todos.push(td);
+    if (todo === '') {
+      alert('You must enter in a task TO DO!')
+    } else {
+      this.todos.push(td);
+    }
+  }
 
-}
-
-delete(index: number) {
+  delete(index: number) {
     this.todos.splice(index, 1);
     console.log("index", index);
-}
-
-saveContact(todo: any) {
-  console.log('todo', todo);
-  let hasError = false;
-  Object.keys(todo).forEach((key: any) => {
-    console.log('key--->', key, 'contact[key] ', [key]);
-    if (todo[key] == null) {
-      hasError = true;
-      this.toastService.showToast('danger', 'Saved failed! property ${key} must not be null!', 2000);
-
-    }
-  });
-  if (!hasError) {
-    todo.editing = false;
-    this.saveItemsToLocalStorage(this.todos);
   }
-}
+
+  clear() {
+    this.todos = [];
+    console.log('index', this.todos)
+  }
+
+  // saveContact(todo: any) {
+  //   console.log('todo', todo);
+  //   let hasError = false;
+  //   Object.keys(todo).forEach((key: any) => {
+  //     console.log('key--->', key, 'contact[key] ', [key]);
+  //     if (todo[key] == null) {
+  //       hasError = true;
+  //       this.toastService.showToast('danger', 'Saved failed! property ${key} must not be null!', 2000);
+
+  //     }
+  //   });
+  //   if (!hasError) {
+  //     todo.editing = false;
+  //     this.saveItemsToLocalStorage(this.todos);
+  //   }
+  // }
 
 
 
-getItemsFromLocalStorage(key: string) {
-  const savedContacts = JSON.parse(localStorage.getItem(key));
-  console.log('from getItemsFromLocalStorage savedItems', savedContacts);
-  return this.localStorageService.getItemsFromLocalStorage(key);
-  // return savedContacts;
-}
+  getItemsFromLocalStorage(key: string) {
+    const savedContacts = JSON.parse(localStorage.getItem(key));
+    console.log('from getItemsFromLocalStorage savedItems', savedContacts);
+    return this.localStorageService.getItemsFromLocalStorage(key);
+    // return savedContacts;
+  }
 
-saveItemsToLocalStorage(contacts: Array<ToDo>) {
-  contacts = this.sortByID(contacts);
-  return this.localStorageService.saveItemsToLocalStorage(contacts);
+  saveItemsToLocalStorage(todos: Array<IToDo>) {
+    todos = this.sortByID(todos);
+    return this.localStorageService.saveItemsToLocalStorage(todos);
 
-  const savedContacts = localStorage.setItem('contacts', JSON.stringify(contacts));
-  console.log('from saveItemsToLocalStorage savedContacts: ', savedContacts);
-  return savedContacts;
-}
+    const savedContacts = localStorage.setItem('contacts', JSON.stringify(todos));
+    console.log('from saveItemsToLocalStorage savedContacts: ', savedContacts);
+    return savedContacts;
+  }
 
-sortByID(contacts: Array<ToDo>) {
-  contacts.sort((prevContact: ToDo, presContact: ToDo) => {
+  sortByID(contacts: Array<ToDo>) {
+    contacts.sort((prevContact: ToDo, presContact: ToDo) => {
 
-    return prevContact.id > presContact.id ? 1 : -1;
-  });
-  console.log('the sorted contacts', contacts);
-  return this.todos;
-}
+      return prevContact.id > presContact.id ? 1 : -1;
+    });
+    console.log('the sorted contacts', contacts);
+    return this.todos;
+  }
 
 
 
-logout() {
-  // clear localStorage
-  this.localStorageService.clearItemFromLocalStorage();
-  // navigate to login page
-  this.router.navigate(['']);
-}
+  logout() {
+    // clear localStorage
+    this.localStorageService.clearItemFromLocalStorage();
+    // navigate to login page
+    this.router.navigate(['']);
+  }
 }
