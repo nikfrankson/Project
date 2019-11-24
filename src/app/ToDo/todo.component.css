@@ -58,3 +58,15 @@
     position: absolute;
     right: 15px;
 }
+
+.selectpicker {
+    position: absolute;
+    left: 15px;
+    bottom: 20px;
+}
+.btn-info {
+    bottom: 20px;
+}
+.btn-primary {
+    top: 150px;
+}

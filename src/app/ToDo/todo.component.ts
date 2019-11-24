@@ -5,6 +5,8 @@ import { LocalStorageService } from '../localStorageService';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from '../login/login.component';
 import { ToastService } from '../toast/toast.service';
+
+
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'todolist',
@@ -15,15 +17,16 @@ export class ToDoComponent implements OnInit {
   todos: Array<IToDo> = [];
   inputtask = "";
   toDoParams = '';
-  localStorageService: LocalStorageService<ToDo>;
+  localStorageService: LocalStorageService<IToDo>;
   currentUser: IUser;
+  modal: any;
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
     this.localStorageService = new LocalStorageService('todos');
-
   }
+  
 
 
   private toastService: ToastService;
@@ -35,6 +38,12 @@ export class ToDoComponent implements OnInit {
     }
   }
 
+
+
+  async loadToDos() {
+    const savedToDos = this.getItemsFromLocalStorage('todos');
+    this.sortByID(this.todos);
+  }
 
   // Creating a to do item by clicking on the Enter Button
 
@@ -49,59 +58,44 @@ export class ToDoComponent implements OnInit {
     } else {
       this.todos.push(td);
     }
+    this.saveItemsToLocalStorage(this.todos);
   }
 
   delete(index: number) {
     this.todos.splice(index, 1);
     console.log("index", index);
+    this.saveItemsToLocalStorage(this.todos);
   }
 
   clear() {
     this.todos = [];
     console.log('index', this.todos)
+    this.saveItemsToLocalStorage(this.todos);
   }
-
-  // saveContact(todo: any) {
-  //   console.log('todo', todo);
-  //   let hasError = false;
-  //   Object.keys(todo).forEach((key: any) => {
-  //     console.log('key--->', key, 'contact[key] ', [key]);
-  //     if (todo[key] == null) {
-  //       hasError = true;
-  //       this.toastService.showToast('danger', 'Saved failed! property ${key} must not be null!', 2000);
-
-  //     }
-  //   });
-  //   if (!hasError) {
-  //     todo.editing = false;
-  //     this.saveItemsToLocalStorage(this.todos);
-  //   }
-  // }
-
-
 
   getItemsFromLocalStorage(key: string) {
-    const savedContacts = JSON.parse(localStorage.getItem(key));
-    console.log('from getItemsFromLocalStorage savedItems', savedContacts);
+    const savedToDo = JSON.parse(localStorage.getItem(key));
+    console.log('from getItemsFromLocalStorage savedItems', savedToDo);
     return this.localStorageService.getItemsFromLocalStorage(key);
-    // return savedContacts;
+    return savedToDo;
   }
+
 
   saveItemsToLocalStorage(todos: Array<IToDo>) {
     todos = this.sortByID(todos);
     return this.localStorageService.saveItemsToLocalStorage(todos);
 
-    const savedContacts = localStorage.setItem('contacts', JSON.stringify(todos));
-    console.log('from saveItemsToLocalStorage savedContacts: ', savedContacts);
-    return savedContacts;
+    const savedToDo = localStorage.setItem('todos', JSON.stringify(todos));
+    console.log('from saveItemsToLocalStorage savedToDos: ', savedToDo);
+    return savedToDo;
   }
 
-  sortByID(contacts: Array<ToDo>) {
-    contacts.sort((prevContact: ToDo, presContact: ToDo) => {
+  sortByID(todos: Array<IToDo>) {
+    todos.sort((prevToDo: IToDo, presToDo: IToDo) => {
 
-      return prevContact.id > presContact.id ? 1 : -1;
+      return prevToDo.id > presToDo.id ? 1 : -1;
     });
-    console.log('the sorted contacts', contacts);
+    console.log('the sorted ToDos', this.todos);
     return this.todos;
   }
 
