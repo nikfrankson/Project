@@ -5,8 +5,8 @@ export class LocalStorageService<T> {
 
     }
 
-    saveItemsToLocalStorage(items: Array<T> | T) {
-        const savedToDos = localStorage.setItem(this.key, JSON.stringify(items));
+    saveItemsToLocalStorage(todos: Array<T> | T) {
+        const savedToDos = localStorage.setItem(this.key, JSON.stringify(todos));
         console.log('from saveItemsToLocalStorage savedToDos: ', savedToDos);
         return savedToDos;
     }

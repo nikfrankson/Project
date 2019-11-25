@@ -34,18 +34,21 @@ export class ToDoComponent implements OnInit {
     const currentUser = this.localStorageService.getItemsFromLocalStorage('user');
     console.log('from todos component', currentUser);
     if (currentUser == null) {
-      this.router.navigate(['login']);
+      await this.router.navigate(['login']);
+    } else {
+      // if user is logged in go and find any items from local storage and bind 
+      // to the view
+      const toDoItems = this.localStorageService.getItemsFromLocalStorage('todos');
+      if (toDoItems && Array.isArray(toDoItems)) {
+         this.todos = toDoItems;
+      }
     }
   }
+  
+  
 
 
 
-  async loadToDos() {
-    const savedToDos = this.getItemsFromLocalStorage('todos');
-    this.sortByID(this.todos);
-  }
-
-  // Creating a to do item by clicking on the Enter Button
 
   addToDo(todo: string) {
     const td = {
@@ -103,7 +106,7 @@ export class ToDoComponent implements OnInit {
 
   logout() {
     // clear localStorage
-    this.localStorageService.clearItemFromLocalStorage();
+    this.localStorageService.clearItemFromLocalStorage('user');
     // navigate to login page
     this.router.navigate(['']);
   }
