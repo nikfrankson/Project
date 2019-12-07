@@ -59,11 +59,10 @@
     right: 15px;
 }
 
-.selectpicker {
-    position: absolute;
-    left: 15px;
-    bottom: 20px;
-}
+input[type="checkbox"]:checked+span {
+    text-decoration: line-through;
+    color: red;
+  }
 .btn-info {
     bottom: 20px;
 }

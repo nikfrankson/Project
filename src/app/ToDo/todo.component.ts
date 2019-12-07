@@ -64,6 +64,8 @@ export class ToDoComponent implements OnInit {
     this.saveItemsToLocalStorage(this.todos);
   }
 
+  
+
   delete(index: number) {
     this.todos.splice(index, 1);
     console.log("index", index);
@@ -74,6 +76,17 @@ export class ToDoComponent implements OnInit {
     this.todos = [];
     console.log('index', this.todos)
     this.saveItemsToLocalStorage(this.todos);
+  }
+
+  update() {
+    localStorage.setItem('checkbox', JSON.stringify(this.todos));
+    
+  }
+
+  complete() {
+    const taskstyle = localStorage.getItem('checkbox')
+    const as = document.getElementById('checkbox');
+    as.classList.add('done');
   }
 
   getItemsFromLocalStorage(key: string) {

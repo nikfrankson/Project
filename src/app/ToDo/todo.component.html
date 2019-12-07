@@ -47,16 +47,8 @@
 <ul class="list-group">
     <li *ngFor="let todo of todos; let i = index"
         class="list-group-item shadow p-3 mb-5 bg-white rounded border border-dark rounded" id="myTask">
+        <input type="checkbox" (click)='update()'><span>
         {{todo.task}} <button type="button" class="btn btn-danger" (click)="delete()">X</button>
-        <button (click)=update()>Edit!</button>
-        <select class="selectpicker">
-            <option value="sunday">Sunday</option>
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-            <option value="saturday">Saturday</option>
-        </select>
+        </span>
     </li>
 </ul>
