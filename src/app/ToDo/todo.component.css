@@ -55,8 +55,7 @@
     bottom: 30%;
 }
 .btn {
-    position: absolute;
-    right: 15px;
+float: right;
 }
 
 input[type="checkbox"]:checked+span {

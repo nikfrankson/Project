@@ -26,14 +26,14 @@
         <div class="inputtask">
             <input [(ngModel)]="inputtask" type="text" id="myInput" placeholder="Enter in your task to do..."><br>
         </div>
-        <div class="inputbutton">
-            <button type="button" (click)="addToDo(inputtask)" class="btn btn-success btn-lg">Enter Task</button>
-        </div>
         <div class="clearbutton">
             <button type="button" class="btn btn-warning" (click)='clear()'>Clear All</button>
         </div>
         <div>
             <button type="button" class="btn btn-primary contact-button" (click)="ngOnInit()">Save All</button>
+        </div>
+        <div class="inputbutton">
+            <button type="button" (click)="addToDo(inputtask)" class="btn btn-success btn-lg">Enter Task</button>
         </div>
     </div>
     <div id="r1c2" class="container-padding">
