@@ -5,10 +5,10 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ToastService {
-
-
-  toastChanged: Subject<any> = new Subject<any>();
+  toastChanged: Subject<any> = new Subject <any>();
   constructor() { }
+  showTo: any;
+
 
   showToast(type: string, message: string, timeout: number) {
     this.toastChanged.next({

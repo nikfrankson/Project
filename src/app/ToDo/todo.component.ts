@@ -27,6 +27,7 @@ export class ToDoComponent implements OnInit {
     this.localStorageService = new LocalStorageService('todos');
   }
   
+  
 
 
   private toastService: ToastService;
@@ -114,6 +115,7 @@ export class ToDoComponent implements OnInit {
     console.log('the sorted ToDos', this.todos);
     return this.todos;
   }
+
 
 
 

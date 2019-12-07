@@ -25,7 +25,7 @@ import { SchedulerModule } from './Scheduler/scheduler.module';
     FormsModule,
     ToastModule,
     AppRoutes,
-    SchedulerModule
+    SchedulerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
