@@ -32,6 +32,10 @@
         <div>
             <button type="button" class="btn btn-primary contact-button" (click)="ngOnInit()">Save All</button>
         </div>
+        <div class="app-main-grid">
+            <app-toast></app-toast>
+            <button class="btn btn-secondary" (click)="showToast()">Get Random Number</button>
+            </div>
         <div class="inputbutton">
             <button type="button" (click)="addToDo(inputtask)" class="btn btn-success btn-lg">Enter Task</button>
         </div>

@@ -14,6 +14,7 @@ import { ToastService } from '../toast/toast.service';
   styleUrls: ['./todo.component.css']
 })
 export class ToDoComponent implements OnInit {
+  toastTypes: Array<string> = [];
   todos: Array<IToDo> = [];
   inputtask = "";
   toDoParams = '';
@@ -23,14 +24,15 @@ export class ToDoComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
+    private toastService: ToastService,
     private router: Router) {
     this.localStorageService = new LocalStorageService('todos');
+    this.toastTypes = ['success', 'info', 'warning', 'danger'];
   }
   
   
 
 
-  private toastService: ToastService;
   async ngOnInit() {
     const currentUser = this.localStorageService.getItemsFromLocalStorage('user');
     console.log('from todos component', currentUser);
@@ -47,7 +49,15 @@ export class ToDoComponent implements OnInit {
   }
   
   
+  showToast() {
 
+    const rand = Math.floor(Math.random() * 4);
+    console.log('Your random number is: ' + rand);
+    const toastType = this.toastTypes[rand];
+    const toastMessage = 'Your random number is: ' + rand;
+    const duration = 5000;
+    this.toastService.showToast(toastType, toastMessage, duration);
+  }
 
 
 
