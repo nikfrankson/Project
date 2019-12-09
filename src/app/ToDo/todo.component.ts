@@ -29,10 +29,6 @@ export class ToDoComponent implements OnInit {
     this.localStorageService = new LocalStorageService('todos');
     this.toastTypes = ['success', 'info', 'warning', 'danger'];
   }
-  
-  
-
-
   async ngOnInit() {
     const currentUser = this.localStorageService.getItemsFromLocalStorage('user');
     console.log('from todos component', currentUser);
@@ -43,25 +39,21 @@ export class ToDoComponent implements OnInit {
       // to the view
       const toDoItems = this.localStorageService.getItemsFromLocalStorage('todos');
       if (toDoItems && Array.isArray(toDoItems)) {
-         this.todos = toDoItems;
+        this.todos = toDoItems;
       }
     }
   }
-  
-  
+
   showToast() {
-    for (let i=0; i < 2 ; i++) {
-      
-    const rand = Math.floor(Math.random() * 4);
-    console.log('Your random number is: ' + rand);
-    const toastType = this.toastTypes[rand];
-    const toastMessage = 'Your random number is: ' + rand;
-    this.toastService.showToast(toastType, toastMessage);
+    for (let i = 0; i < 3; i++) {
+      const rand = Math.floor(Math.random() * 9);
+      console.log('Your random number is: ' + rand);
+      const toastType = 'success';
+      const toastMessage = 'Your random number is: ' + rand;
+      const duration = 10000;
+      this.toastService.showToast(toastType, toastMessage, duration);
+    }
   }
-}
-
-
-
   addToDo(todo: string) {
     const td = {
       id: 1,
@@ -76,7 +68,7 @@ export class ToDoComponent implements OnInit {
     this.saveItemsToLocalStorage(this.todos);
   }
 
-  
+
 
   delete(index: number) {
     this.todos.splice(index, 1);
@@ -92,7 +84,7 @@ export class ToDoComponent implements OnInit {
 
   update() {
     localStorage.setItem('checkbox', JSON.stringify(this.todos));
-    
+
   }
 
   complete() {
@@ -112,7 +104,6 @@ export class ToDoComponent implements OnInit {
   saveItemsToLocalStorage(todos: Array<IToDo>) {
     todos = this.sortByID(todos);
     return this.localStorageService.saveItemsToLocalStorage(todos);
-
     const savedToDo = localStorage.setItem('todos', JSON.stringify(todos));
     console.log('from saveItemsToLocalStorage savedToDos: ', savedToDo);
     return savedToDo;
@@ -126,10 +117,7 @@ export class ToDoComponent implements OnInit {
     console.log('the sorted ToDos', this.todos);
     return this.todos;
   }
-
-
-
-
+  
   logout() {
     // clear localStorage
     this.localStorageService.clearItemFromLocalStorage('user');
