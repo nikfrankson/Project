@@ -46,7 +46,6 @@ export class ToDoComponent implements OnInit {
 
   showToast() {
     for (let i=0; i < 3 ; i++) {
-      
     const rand = Math.floor(Math.random() * 9);
     console.log('Your random number is: ' + rand);
     const toastType = 'success';
