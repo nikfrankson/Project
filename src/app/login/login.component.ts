@@ -40,12 +40,12 @@ export class LoginComponent implements OnInit {
       } else {
         // show error toast user
         console.log('from else........');
-        this.toastService.showToast('warning', 'Login failed! Please check your username and password', 15000);
+        this.toastService.showToast('warning', 'Login failed! Please check your username and password', 5000);
       }
     } else {
       // show error toast user
       console.log('from else........');
-      this.toastService.showToast('warning', 'Login failed! Please specify your username and password', 15000);
+      this.toastService.showToast('warning', 'Login failed! Please specify your username and password', 5000);
     }
 
   }

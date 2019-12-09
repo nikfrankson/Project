@@ -10,11 +10,11 @@ export class ToastService {
   showTo: any;
 
 
-  showToast(type: string, message: string, length: number ) {
+  showToast(type: string, message: string, timeout: number ) {
     this.toastChanged.next({
       type,
       message,
-      length
+      timeout
     });
   }
 }

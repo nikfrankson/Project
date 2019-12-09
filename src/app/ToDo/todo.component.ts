@@ -47,10 +47,11 @@ export class ToDoComponent implements OnInit {
   showToast() {
     for (let i=0; i < 3 ; i++) {
     const rand = Math.floor(Math.random() * 9);
-    console.log('Your random number is: ' + rand);
+    console.log('Your random number is1: ' + rand);
     const toastType = 'success';
     const toastMessage = 'Your random number is: ' + rand;
-    this.toastService.showToast(toastType, toastMessage, 10000);
+    const length = 10000;
+    this.toastService.showToast(toastType, toastMessage, length);
   }
 }
   addToDo(todo: string) {
