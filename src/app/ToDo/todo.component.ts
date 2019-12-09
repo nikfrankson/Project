@@ -50,6 +50,8 @@ export class ToDoComponent implements OnInit {
   
   
   showToast() {
+    for (let i=0; i < 3 ; i++) {
+    
 
     const rand = Math.floor(Math.random() * 4);
     console.log('Your random number is: ' + rand);
@@ -58,6 +60,7 @@ export class ToDoComponent implements OnInit {
     const duration = 5000;
     this.toastService.showToast(toastType, toastMessage, duration);
   }
+}
 
 
 
