@@ -1,5 +1,5 @@
 .nav-action-container {
-    margin: 20px auto;
+    margin: 25px auto;
     width: 90%;
 }
 .main-nav {
@@ -28,6 +28,7 @@
 }
 
 .inputtask [type=text] {
+    position: relative;
     font-family: 'Big Shoulders Display', cursive;
     font-size: large;
     padding: 30px;
@@ -41,12 +42,14 @@
 }
 .inputtask [type=text]:focus {
     border: 3px solid black;
+    position: relative;
   }
 
 .inputbutton {
+    
     position: absolute;
-    top: 140px;
-    right: 600px;
+    top: 150px;
+    left: 1075px;
 }
 
 .logout {
@@ -55,7 +58,9 @@
     bottom: 30%;
 }
 .btn {
-float: right;
+    float: right;
+    line-height: 20px;
+
 }
 
 input[type="checkbox"]:checked+span {
