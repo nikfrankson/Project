@@ -3,11 +3,23 @@
     grid-template-columns: 1fr 1fr 1fr;
     height: 100vh;
     align-items: center;
+   
 }
 .login-form {
     padding: 25px;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    background-color: gray;
 }
 
 .login-body {
-    background-color: wheat;
+    background: url(src\assets\loginBackground\background.jpg);
+      
+  min-height: 380px;
+
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
