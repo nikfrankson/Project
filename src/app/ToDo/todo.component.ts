@@ -45,15 +45,45 @@ export class ToDoComponent implements OnInit {
   }
 
   showToast() {
-    for (let i=0; i < 3 ; i++) {
-    const rand = Math.floor(Math.random() * 9);
-    console.log('Your random number is1: ' + rand);
-    const toastType = 'success';
-    const toastMessage = 'Your random number is: ' + rand;
-    const length = 10000;
-    this.toastService.showToast(toastType, toastMessage, length);
+    for (let i = 0; i < 3; i++) {
+      const rand = Math.floor(Math.random() * 9);
+      switch (rand) {
+        case 0:
+          let toastType = 'success';
+          let toastMessage = 'Clean your room!';
+          let length = 10000;
+          this.toastService.showToast(toastType, toastMessage, length);
+          break;
+        case 1:
+          this.toastService.showToast('success', 'Do nothing!', 10000);
+          break;
+        case 2:
+          this.toastService.showToast('success', 'Clean the kitchen', 10000);
+          break;
+        case 3:
+          this.toastService.showToast('success', 'Call your mom!', 10000);
+          break;
+        case 4:
+          this.toastService.showToast('success', 'Take out the trash', 10000);
+          break;
+        case 5:
+          this.toastService.showToast('success', 'Do laundry', 10000);
+          break;
+        case 6:
+          this.toastService.showToast('success', 'Finish homework', 10000);
+          break;
+        case 7:
+          this.toastService.showToast('success', 'Do whatever you are currently putting off', 10000);
+          break;
+        case 8:
+          this.toastService.showToast('success', 'Practice a new skill', 10000);
+          break;
+        case 9:
+          this.toastService.showToast('success', 'Develop a schedule app', 10000);
+          break;
+      }
+    }
   }
-}
   addToDo(todo: string) {
     const td = {
       id: 1,
@@ -117,7 +147,7 @@ export class ToDoComponent implements OnInit {
     console.log('the sorted ToDos', this.todos);
     return this.todos;
   }
-  
+
   logout() {
     // clear localStorage
     this.localStorageService.clearItemFromLocalStorage('user');
